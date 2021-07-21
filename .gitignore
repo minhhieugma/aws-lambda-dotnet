@@ -1,5 +1,3 @@
 Lambda.Dotnet/.vs
-Lambda.Dotnet/Lambda.Dotnet/bin
-Lambda.Dotnet/Lambda.Dotnet/obj
-Lambda.Dotnet/Lambda.Dotnet.Tests/bin
-Lambda.Dotnet/Lambda.Dotnet.Tests/obj
+**/obj
+**/bin

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.810.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda.Dotnet", "Lambda.Dotnet\Lambda.Dotnet.csproj", "{622AC9C6-42D9-43D9-B240-C6C060EDE6B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda.Dotnet.Tests", "Lambda.Dotnet.Tests\Lambda.Dotnet.Tests.csproj", "{FD05FB29-68EC-406F-A68F-609FFF5A259C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda.Tests", "Lambda.Dotnet.Tests\Lambda.Tests.csproj", "{FD05FB29-68EC-406F-A68F-609FFF5A259C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda.Dotnet.Mediator", "Lambda.Dotnet.Mediator\Lambda.Dotnet.Mediator.csproj", "{D4801576-CA26-40E3-A40A-0B52CBD5F20A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FD05FB29-68EC-406F-A68F-609FFF5A259C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD05FB29-68EC-406F-A68F-609FFF5A259C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD05FB29-68EC-406F-A68F-609FFF5A259C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4801576-CA26-40E3-A40A-0B52CBD5F20A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4801576-CA26-40E3-A40A-0B52CBD5F20A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4801576-CA26-40E3-A40A-0B52CBD5F20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4801576-CA26-40E3-A40A-0B52CBD5F20A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

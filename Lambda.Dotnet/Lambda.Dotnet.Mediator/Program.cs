@@ -2,23 +2,26 @@
 using System.Threading.Tasks;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
-namespace Lambda.Dotnet
+namespace Lambda.Dotnet.Mediator
 {
     public class Program
     {
         private IServiceProvider serviceProvider;
         private ILogger logger;
+        private IMediator mediator;
 
         public Program()
         {
             this.serviceProvider = DependencyInjection.BuildServiceProvider();
 
             logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+            mediator = serviceProvider.GetRequiredService<IMediator>();
         }
 
         public async Task<APIGatewayProxyResponse> ApiGatewateHandler(APIGatewayProxyRequest apigProxyEvent)
@@ -26,6 +29,9 @@ namespace Lambda.Dotnet
             logger.LogError("Headers:{Headers}", apigProxyEvent.Headers);
 
             logger.LogInformation("Body:{Body}", apigProxyEvent.Body);
+
+            await this.mediator.Send(new TestCommand { });
+            var response = await this.mediator.Send(new TestQuery { });
 
             return new APIGatewayProxyResponse
             {

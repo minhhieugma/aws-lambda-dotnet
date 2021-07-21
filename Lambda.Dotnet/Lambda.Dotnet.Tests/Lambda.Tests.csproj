@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Lambda.Dotnet\Lambda.Dotnet.csproj" />
+    <ProjectReference Include="..\Lambda.Dotnet.Mediator\Lambda.Dotnet.Mediator.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Amazon.Lambda.TestUtilities" />

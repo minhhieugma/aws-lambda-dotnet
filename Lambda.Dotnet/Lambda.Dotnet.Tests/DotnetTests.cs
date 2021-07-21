@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.TestUtilities;
+using Lambda.Dotnet;
 using Xunit;
 
-namespace Lambda.Dotnet.Tests
+namespace Lambda.Tests
 {
-    public class UnitTest1
+    public class DotnetTests
     {
         [Fact]
         public void TestToUpperFunction()
         {
 
             // Invoke the lambda function and confirm the string was upper cased.
-            var function = new Function();
+            var function = new Program();
             var context = new TestLambdaContext();
 
             var casing = function.FunctionHandler("hello world", context);
@@ -28,7 +29,7 @@ namespace Lambda.Dotnet.Tests
             Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "development");
 
             // Invoke the lambda function and confirm the string was upper cased.
-            var function = new Function();
+            var function = new Program();
             var request = new APIGatewayProxyRequest();
             request.RequestContext = new APIGatewayProxyRequest.ProxyRequestContext
             {
