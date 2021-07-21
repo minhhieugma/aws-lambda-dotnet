@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <AWSProjectType>Lambda</AWSProjectType>
+
+    <!-- This property makes the build directory similar to a publish directory and helps the AWS .NET Lambda Mock Test Tool find project dependencies. -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Amazon.Lambda.Core" />
+    <None Remove="Amazon.Lambda.APIGatewayEvents" />
+    <None Remove="Amazon.Lambda.Serialization.SystemTextJson" />
+    <None Remove="Microsoft.Extensions.Logging.Abstractions" />
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
+    <None Remove="Microsoft.Extensions.Logging.Console" />
+    <None Remove="Microsoft.Extensions.Configuration.Json" />
+    <None Remove="Microsoft.Extensions.Configuration.EnvironmentVariables" />
+    <None Remove="appsettings.Development.json" />
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Core" Version="2.0.0" />
+    <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="2.4.0" />
+    <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0-preview.6.21352.12" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0-preview.6.21352.12" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0-preview.6.21352.12" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0-preview.6.21352.12" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0-preview.6.21352.12" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
