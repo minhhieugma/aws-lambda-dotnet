@@ -21,6 +21,7 @@
     <None Remove="Microsoft.Extensions.Configuration.EnvironmentVariables" />
     <None Remove="appsettings.Development.json" />
     <None Remove="appsettings.json" />
+    <None Remove="Amazon.Lambda.CloudWatchEvents" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="2.0.0" />
@@ -31,6 +32,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0-preview.6.21352.12" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0-preview.6.21352.12" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0-preview.6.21352.12" />
+    <PackageReference Include="Amazon.Lambda.CloudWatchEvents" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="appsettings.Development.json">

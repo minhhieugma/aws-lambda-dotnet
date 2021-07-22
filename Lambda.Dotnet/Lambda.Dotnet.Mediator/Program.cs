@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Amazon.Lambda.APIGatewayEvents;
+using Amazon.Lambda.CloudWatchEvents.ScheduledEvents;
 using Amazon.Lambda.Core;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -50,6 +51,13 @@ namespace Lambda.Dotnet.Mediator
         {
             return new Casing(input?.ToLower(), input?.ToUpper());
         }
+
+
+        public async Task ScheduledEventHandler(ScheduledEvent scheduledEvents)
+        {
+
+        }
+
 
         public record Casing(string Lower, string Upper);
 
