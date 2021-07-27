@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.CloudWatchEvents.ScheduledEvents;
 using Amazon.Lambda.Core;
+using Lambda.Dotnet.Mediator.Commands;
+using Lambda.Dotnet.Mediator.Queries;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

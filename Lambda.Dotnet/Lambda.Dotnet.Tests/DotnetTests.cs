@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Amazon.Lambda.APIGatewayEvents;
+using Amazon.Lambda.CloudWatchEvents.ScheduledEvents;
 using Amazon.Lambda.TestUtilities;
 using Lambda.Dotnet;
 using Xunit;
@@ -48,5 +49,18 @@ namespace Lambda.Tests
         }
 
 
+        [Fact]
+        public async void ScheduledEventHandlerTest()
+        {
+            Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "development");
+
+            // Invoke the lambda function and confirm the string was upper cased.
+            var function = new Program();
+            var request = new ScheduledEvent();
+
+            await function.ScheduledEventHandler(request);
+
+            //Assert.Equal(200, casing.StatusCode);
+        }
     }
 }

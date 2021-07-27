@@ -1,29 +1,32 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
-using Microsoft.Extensions.Logging;
-using static TestQuery;
-
-public class TestQuery : IRequest<ResponseModal>
+﻿namespace Lambda.Dotnet.Mediator.Queries
 {
+    using System;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using MediatR;
+    using Microsoft.Extensions.Logging;
+    using static TestQuery;
 
-    public class Handler : IRequestHandler<TestQuery, ResponseModal>
+    public class TestQuery : IRequest<ResponseModal>
     {
-        private readonly ILogger logger;
 
-        public Handler(ILogger<Handler> logger)
+        public class Handler : IRequestHandler<TestQuery, ResponseModal>
         {
-            this.logger = logger;
+            private readonly ILogger logger;
+
+            public Handler(ILogger<Handler> logger)
+            {
+                this.logger = logger;
+            }
+
+            public async Task<ResponseModal> Handle(TestQuery query, CancellationToken cancellationToken)
+            {
+                this.logger.LogInformation("Querying..");
+
+                return new ResponseModal("foo", "bar");
+            }
         }
 
-        public async Task<ResponseModal> Handle(TestQuery query, CancellationToken cancellationToken)
-        {
-            this.logger.LogInformation("Querying..");
-
-            return new ResponseModal("foo", "bar");
-        }
+        public record ResponseModal(string Field1, string Field2);
     }
-
-    public record ResponseModal(string Field1, string Field2);
 }

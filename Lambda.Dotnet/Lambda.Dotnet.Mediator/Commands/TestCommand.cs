@@ -1,27 +1,30 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
-using Microsoft.Extensions.Logging;
-
-public class TestCommand : IRequest<Unit>
+﻿namespace Lambda.Dotnet.Mediator.Commands
 {
+    using System.Threading;
+    using System.Threading.Tasks;
+    using MediatR;
+    using Microsoft.Extensions.Logging;
 
-
-    public class Handler : IRequestHandler<TestCommand>
+    public class TestCommand : IRequest<Unit>
     {
-        private readonly ILogger logger;
 
-        public Handler(ILogger<TestCommand> logger)
+
+        public class Handler : IRequestHandler<TestCommand>
         {
-            this.logger = logger;
+            private readonly ILogger logger;
+
+            public Handler(ILogger<TestCommand> logger)
+            {
+                this.logger = logger;
+            }
+
+            public async Task<Unit> Handle(TestCommand request, CancellationToken cancellationToken)
+            {
+                this.logger.LogInformation("Executing..");
+
+                return Unit.Value;
+            }
         }
 
-        public async Task<Unit> Handle(TestCommand request, CancellationToken cancellationToken)
-        {
-            this.logger.LogInformation("Executing..");
-
-            return Unit.Value;
-        }
     }
-
 }

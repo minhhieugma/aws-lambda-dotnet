@@ -1,7 +1,7 @@
 # FROM mcr.microsoft.com/dotnet/runtime:6.0-focal AS base
 # WORKDIR /app
 
-FROM public.ecr.aws/lambda/dotnet:6.0 AS base
+FROM public.ecr.aws/lambda/dotnet:5.0 AS base
 WORKDIR /var/task/
 
 # # Creates a non-root user with an explicit UID and adds permission to access the /app folder
@@ -9,7 +9,7 @@ WORKDIR /var/task/
 # RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 # USER appuser
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
 COPY ["nuget.config", "."]
 COPY ["Lambda.Dotnet.Mediator/Lambda.Dotnet.Mediator.csproj", "Lambda.Dotnet.Mediator/"]
